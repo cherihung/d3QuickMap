@@ -1,0 +1,132 @@
+/* d3QuickMap plugin: core styles
+ * version 1.0.0
+ * author: Chienyi Cheri Hung @cyhung
+ */
+
+@tooltipbgd_color: #333333;
+@tooltiptxt_color: #ffffff;
+
+@em: 16*1em;    // Shorthand for outputting ems, e.g. "16/@em"
+@px: 1px;
+@line: 32; 
+@bodywidth: 100%;
+
+@font-size: 14;  // base font-size in pixels
+@fontfamily: Arial, sans-serif;
+
+.tiny {
+font-size: 10/@em;
+line-height: (@line / @em)*.8;
+}
+.small {
+font-size: 12 / @em;
+line-height: (@line / @em)*.8;
+}
+.normal {
+font-size: @font-size/@em;
+line-height: (@line / @em)*.8;
+}
+.medium {
+font-size: 16 / @em;
+line-height: (@line / @em)*.7;
+}
+.large {
+font-size: 24 / @em;
+line-height: (@line / @em)*.8;
+font-weight: 500;
+}
+.huge {
+font-size: 27 / @em;
+font-weight: 500;
+line-height: (@line / @em);
+}
+
+body {
+   margin:0;
+   padding:0;
+   .normal();
+   font-family: @fontfamily;
+}
+
+.d3-tip {
+
+  line-height: 1;
+  font-weight: bold;
+  padding: 10px;
+  background: rgba(red(@tooltipbgd_color), green(@tooltipbgd_color), blue(@tooltipbgd_color), 0.8);
+  color: @tooltiptxt_color;
+  -webkit-border-radius:2px;
+  -moz-border-radius:2px;
+   border-radius:2px;
+
+  span.value {
+      color: #FFF293;
+      text-transform: capitalize;
+  }
+} //.d3-tip
+.d3-tip:after {
+  border-width:10px 10px 0; /* vary these values to change the angle of the vertex */
+  border-style:solid;
+  border-color: rgba(red(@tooltipbgd_color), green(@tooltipbgd_color), blue(@tooltipbgd_color), 0.8) transparent;
+  content: "";
+  position: absolute;
+  left: 10%;
+  top: 100%;
+}
+
+/* Style northward tooltips differently 
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}*/
+path {
+   stroke: #ddd;
+   stroke-width: 1px;
+}
+.states-overlay {
+  stroke: #eee;
+  stroke-linejoin: round;
+}
+.legend-scale {
+   width: 200px;
+   height: 20px;
+   position:absolute;
+   top: 30px;
+   border:1px solid #ccc;
+   font-size: 10px;
+   text-align:right;
+   padding: 0 5px;
+   
+   .max {
+      float:right;
+      color: #fff;
+   }
+   .min {
+      float:left;
+      color: #999;
+   }
+
+} //.legend-scale
+
+.yes {
+     fill: #297ED8;
+}
+
+.no {
+    fill: #77AD58;
+}
+
+.flat {
+     fill: #E8C96D;
+}
+
+.q0-9 { fill:rgb(247,251,255); }
+.q1-9 { fill:rgb(222,235,247); }
+.q2-9 { fill:rgb(198,219,239); }
+.q3-9 { fill:rgb(158,202,225); }
+.q4-9 { fill:rgb(107,174,214); }
+.q5-9 { fill:rgb(66,146,198); }
+.q6-9 { fill:rgb(33,113,181); }
+.q7-9 { fill:rgb(8,81,156); }
+.q8-9 { fill:rgb(8,48,107); }

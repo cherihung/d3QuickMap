@@ -1,7 +1,7 @@
 /* d3QuickMap plugin: core js
  * This is for use with simple choropleth US map that requires the most basic of user interaction
  * Uses Topojson for full US states and counties boundaries
- * version 1.0.0
+ * version 1.0.1
  * author: Chienyi Cheri Hung @cyhung
  * Licensed under the MIT licenses.
  * http://www.opensource.org/licenses/mit-license.php
@@ -11,9 +11,11 @@
 /* color scheme options:
 /* #1 - finalize color scheme options: 1)custom categorical via CSS file 2)automatic categorical based on colors from brewer 3)automatic quantize for number data, provide 3 color schemes 4)custom quantize for number data via CSS file
 #2 - implement a simple toolip feature that shows tile name and data value
+#1 - switcher for tooltip for categorical and linear maps
+v 1.0.1 added mouseover actions for categorical legends
 */
 
-/* TODO: #1 - switcher for tooltip for categorical and linear maps */
+/* TODO: #1 - fix scale's colors when linear map uses custom colors */
 /* TODO: #2 - documentation for version 1.0.0, when do you want to use this? why am i developing this? */
 /* TODO: #3 - implement zooming, an update function with smooth transitions */
 
@@ -153,9 +155,10 @@ function draw(error, us) {
     .attr('class', 'd3-tip')
     .offset([-10, 0])
     .html(function(d) {
-      //return '<span class="value">' + numformat(+mapdata.get(d.id).get(dp)) + '</span>';
+    //switcher based on categorical or linear
      var labeltxt = mapdata.get(d.id).get("fullname") != null ? mapdata.get(d.id).get("fullname")+": " : "";
-      return colorType == "Lin" ? '<span class="label">'+labeltxt+'</span><span class="value">' + numformat(mapdata.get(d.id).get(dp)) + '</span>' : '<span class="label">'+labeltxt+'</span>'+mapdata.get(d.id).get(dp).replace(/\s/g, ""); //if is linear quantize to class the tile, else use
+     
+     return colorType == "Lin" ? '<span class="label">'+labeltxt+'</span><span class="value">' + numformat(mapdata.get(d.id).get(dp)) + '</span>' : '<span class="label">'+labeltxt+'</span>'+mapdata.get(d.id).get(dp).replace(/\s/g, ""); //if is linear quantize to class the tile, else use
   })    
     maps.call(tip); //tie in tool tip
     
@@ -232,6 +235,7 @@ if (ls['showLegend'] === true) {
 	    .enter()
 	    .append('g')
 	    .attr('class', 'legend')
+	    .attr('cursor','pointer');
 	
 	    legend.append('rect')
 		  .attr('x', (width / 2) + 10)
@@ -251,7 +255,6 @@ if (ls['showLegend'] === true) {
 		.attr('font-size','11px')
 		.text(function(d){
 		  var keyCounts = ls_count === true ? " (" + d.count + ")" : ''; //set key counts string based on setting
-		  
 		  //if type is default
 		  if (ls_type == 'default') {   
       		    return d.name.toUpperCase() + keyCounts;
@@ -266,8 +269,21 @@ if (ls['showLegend'] === true) {
 		      
 		  }
 		  return null
-		  }); //end text return for legend
-	
+		  }) //end text return for legend
+		  .on('mouseover', function(d) {
+			//legend.attr('font-weight','bold');
+			d3.select(this.parentNode)
+			    .attr('font-weight','bold');
+			tiles.selectAll("path."+d.name)
+			    .attr("opacity","0.8");
+			    
+		    })
+		  .on('mouseout',function(d){
+			d3.select(this.parentNode)
+			    .attr('font-weight','normal');
+			tiles.selectAll("path")
+			    .attr("opacity","1");
+		  })
 	} //END if color type is categorical
 	
 	/**CHART TYPE: LINEAR**/
@@ -295,6 +311,9 @@ if (ls['showLegend'] === true) {
 	
 } //END if show legend
 
+function legendFilter() {
+
+} 
   
 
 } //ready()

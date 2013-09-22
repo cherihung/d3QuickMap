@@ -83,6 +83,17 @@ path {
   font-size: 10px;
   text-align: right;
   padding: 0 5px;
+  /*added if using custom color scale for linear map */
+
+  background-color: #08306b !important;
+  background-image: -webkit-gradient(linear, left top, left top, color-stop(35%, #f7fbff), color-stop(100% #08306b)) !important;
+  background-image: -webkit-linear-gradient(left, #f7fbff 35%, #08306b 100%) !important;
+  background-image: -moz-linear-gradient(left, #f7fbff 35%, #08306b 100%) !important;
+  background-image: -ms-linear-gradient(left, #f7fbff 35%, #08306b 100%) !important;
+  background-image: -o-linear-gradient(left, #f7fbff 35%, #08306b 100%) !important;
+  background-image: linear-gradient(left, #f7fbff 35%, #08306b 100%) !important;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgb(8,48,107)', endColorstr='rgb(247,251,255)') !important;
+  -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr=' #08306b ', endColorstr=' #f7fbff ')' !important;
 }
 .legend-scale .max {
   float: right;
@@ -102,29 +113,39 @@ path {
   fill: #E8C96D;
 }
 .q0-9 {
-  fill: #f7fbff;
+  fill: #F7FBFF !important;
 }
 .q1-9 {
-  fill: #deebf7;
+  fill: #DEEBF7 !important;
 }
 .q2-9 {
-  fill: #c6dbef;
+  fill: #C6DBEF !important;
 }
 .q3-9 {
-  fill: #9ecae1;
+  fill: #9ECAE1 !important;
 }
 .q4-9 {
-  fill: #6baed6;
+  fill: #6BAED6 !important;
 }
 .q5-9 {
-  fill: #4292c6;
+  fill: #4292C6 !important;
 }
 .q6-9 {
-  fill: #2171b5;
+  fill: #2171B5 !important;
 }
 .q7-9 {
-  fill: #08519c;
+  fill: #08519C !important;
 }
 .q8-9 {
-  fill: #08306b;
+  fill: #08306B !important;
 }
+/*
+.legend-scale {
+   background-image: linear-gradient(right,#d94801 35%, #FFFFFF 100%) !important;
+   background-image: -o-linear-gradient(right, #d94801 35%,#FFFFFF 100%) !important;
+   background-image: -moz-linear-gradient(right, rgb(8,48,107) 35%, #FFFFFF 100%) !important;
+   background-image: -webkit-linear-gradient(right, #d94801 35%, #FFFFFF 100%) !important;
+   background-image: -ms-linear-gradient(right, #d94801 35%, #FFFFFF 100%) !important;
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d94801', endColorstr='#fdebdb') !important;
+   -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr='#d94801', endColorstr='#fdebdb')' !important;
+}*/

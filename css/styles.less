@@ -3,6 +3,8 @@
  * author: Chienyi Cheri Hung @cyhung
  */
 
+@import "../_lib/prefixer.less";
+
 @tooltipbgd_color: #333333;
 @tooltiptxt_color: #ffffff;
 
@@ -97,6 +99,10 @@ path {
    font-size: 10px;
    text-align:right;
    padding: 0 5px;
+ /*added if using custom color scale for linear map */
+    .linear-gradient-left(#08306B,#F7FBFF,35%,#08306B,100%);
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgb(8,48,107)', endColorstr='rgb(247,251,255)') !important;
+   -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr='rgb(8,48,107)', endColorstr='rgb(247,251,255)')' !important;
    
    .max {
       float:right;
@@ -121,12 +127,22 @@ path {
      fill: #E8C96D;
 }
 
-.q0-9 { fill:rgb(247,251,255); }
-.q1-9 { fill:rgb(222,235,247); }
-.q2-9 { fill:rgb(198,219,239); }
-.q3-9 { fill:rgb(158,202,225); }
-.q4-9 { fill:rgb(107,174,214); }
-.q5-9 { fill:rgb(66,146,198); }
-.q6-9 { fill:rgb(33,113,181); }
-.q7-9 { fill:rgb(8,81,156); }
-.q8-9 { fill:rgb(8,48,107); }
+.q0-9 { fill:#F7FBFF !important; }
+.q1-9 { fill:#DEEBF7 !important; }
+.q2-9 { fill:#C6DBEF !important; }
+.q3-9 { fill:#9ECAE1 !important; }
+.q4-9 { fill:#6BAED6 !important; }
+.q5-9 { fill:#4292C6 !important;  }
+.q6-9 { fill:#2171B5 !important; }
+.q7-9 { fill:#08519C !important; }
+.q8-9 { fill:#08306B !important; } 
+/*
+.legend-scale {
+   background-image: linear-gradient(right,#d94801 35%, #FFFFFF 100%) !important;
+   background-image: -o-linear-gradient(right, #d94801 35%,#FFFFFF 100%) !important;
+   background-image: -moz-linear-gradient(right, rgb(8,48,107) 35%, #FFFFFF 100%) !important;
+   background-image: -webkit-linear-gradient(right, #d94801 35%, #FFFFFF 100%) !important;
+   background-image: -ms-linear-gradient(right, #d94801 35%, #FFFFFF 100%) !important;
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d94801', endColorstr='#fdebdb') !important;
+   -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr='#d94801', endColorstr='#fdebdb')' !important;
+}*/

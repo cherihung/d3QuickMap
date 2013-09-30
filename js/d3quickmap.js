@@ -7,19 +7,6 @@
  * http://www.opensource.org/licenses/mit-license.php
  */
 
-/* Features developed: albesUSA projection, states and counties boundaries, csv data file, csv google doc, tile name on hover, automatic legend, custom legend */
-/* color scheme options:
-/* #1 - finalize color scheme options: 1)custom categorical via CSS file 2)automatic categorical based on colors from brewer 3)automatic quantize for number data, provide 3 color schemes 4)custom quantize for number data via CSS file
-#2 - implement a simple toolip feature that shows tile name and data value
-#1 - switcher for tooltip for categorical and linear maps
-v 1.0.1 added mouseover actions for categorical legends
-*/
-
-/* TODO: #1 - fix scale's colors when linear map uses custom colors */
-/* TODO: #2 - documentation for version 1.0.0, when do you want to use this? why am i developing this? */
-/* TODO: #3 - implement zooming, an update function with smooth transitions */
-
-
 function d3QuickMap() {
 
 /* check if variable is a true number */

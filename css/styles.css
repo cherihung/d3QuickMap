@@ -139,13 +139,3 @@ path {
 .q8-9 {
   fill: #08306B !important;
 }
-/*
-.legend-scale {
-   background-image: linear-gradient(right,#d94801 35%, #FFFFFF 100%) !important;
-   background-image: -o-linear-gradient(right, #d94801 35%,#FFFFFF 100%) !important;
-   background-image: -moz-linear-gradient(right, rgb(8,48,107) 35%, #FFFFFF 100%) !important;
-   background-image: -webkit-linear-gradient(right, #d94801 35%, #FFFFFF 100%) !important;
-   background-image: -ms-linear-gradient(right, #d94801 35%, #FFFFFF 100%) !important;
-   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d94801', endColorstr='#fdebdb') !important;
-   -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr='#d94801', endColorstr='#fdebdb')' !important;
-}*/

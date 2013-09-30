@@ -167,3 +167,4 @@ pip-log.txt
 #############
 *.komodoproject
 mixture.json
+*.ignore.*

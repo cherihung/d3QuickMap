@@ -26,5 +26,13 @@
     "useNodeSass": false,
     "optimiseImages": true,
     "password": null,
-    "ignoreDir": "ignore"
+    "ignoreDir": "ignore",
+    "customTodos": null,
+    "ftpSettings": {
+        "host": "www.cyhung.net",
+        "port": 21,
+        "username": "cherihung",
+        "password": "", 
+        "path": "/development/sandbox/d3QuickMap"
+    }
 }

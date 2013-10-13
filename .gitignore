@@ -168,3 +168,5 @@ pip-log.txt
 *.komodoproject
 mixture.json
 *.ignore.*
+converted-html/
+ignore/

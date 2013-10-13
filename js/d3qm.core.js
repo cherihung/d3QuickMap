@@ -1,7 +1,7 @@
 /* d3QuickMap plugin: core js
  * This is for use with simple choropleth US map that requires the most basic of user interaction
  * Uses Topojson for full US states and counties boundaries
- * version 1.0.1
+ * version 1.0.4
  * author: Chienyi Cheri Hung @cyhung
  * Licensed under the MIT licenses.
  * http://www.opensource.org/licenses/mit-license.php
@@ -27,7 +27,8 @@ d3QuickMap.prototype.drawMap = function(param_m, s) {
 	     h: 600,
 	     bm: 'us-states',
 	     nf: ',',
-	     cs: "blue"
+	     cs: "blue",
+	     pt: '/d3qm-plugin/'
         }
     });
 
@@ -39,7 +40,8 @@ d3QuickMap.prototype.drawMap = function(param_m, s) {
 	    dp: s.dataPoint, //data point
 	    nf: s.numberFormat, //number format
 	    cs: s.colorScheme, //color scheme
-	    ls: s.legend //legend setting
+	    ls: s.legend, //legend setting
+	    pt: s.path //plugin file path
     })
     
    var width = config.get("w"), //map width
@@ -49,7 +51,8 @@ d3QuickMap.prototype.drawMap = function(param_m, s) {
       dp = config.get("dp"), //data point
       nf = config.get("nf"), //number format
       cs = config.get("cs"), //color scheme to use with autoColor = true
-      ls = config.get("ls"); //legend setting
+      ls = config.get("ls"), //legend setting
+      pt = config.get("pt"); //plugin file path
       
 
 /**************************************************************************
@@ -63,7 +66,7 @@ d3QuickMap.prototype.drawMap = function(param_m, s) {
   var map_scale = width/default_w; //calcuate how to rescale the map based on user defined map width and height
   var projection = d3.geo.albersUsa();
   var path = d3.geo.path().projection(projection);
-  var basemapsource = "../json/us.json"; //us.json only now; can extend to world or other json files later 
+  var basemapsource = pt+"lib/json/us.json"; //us.json only now; can extend to world or other json files later 
   var basemap; //what objections to use
   var numformat = d3.format(nf);
   
@@ -104,9 +107,11 @@ d3QuickMap.prototype.drawMap = function(param_m, s) {
 //SET UP MAP TILES AND TOOL TIP
   var maps = d3.select('#'+mapid).append('svg')
 	 .attr('width', width)
-	 .attr('height', height);
+	 .attr('height', height)
+	 .attr('class','d3qmsvg');
   var tiles = maps.append('g')
-	.attr('id', 'tiles') 
+	.attr('class', 'd3qmtiles')
+	.attr('id',mapid+'-tiles')
 	.attr('transform', 'scale('+map_scale+','+map_scale+')');
 
 //QUEUE UP ALL DATA FILES
@@ -221,7 +226,7 @@ if (ls['showLegend'] === true) {
 	    .data(legends)
 	    .enter()
 	    .append('g')
-	    .attr('class', 'legend')
+	    .attr('class', 'legend-key')
 	    .attr('cursor','pointer');
 	
 	    legend.append('rect')
@@ -279,12 +284,15 @@ if (ls['showLegend'] === true) {
 	//draw the legend
 	var datamax = d3.max(legends,function(d){return +d.name});
 	var datamin = d3.min(legends, function(d){return +d.name});
-	var lposition = (width*map_scale)-200;
-	
+		
+	var rect = document.getElementById(mapid+'-tiles').getBoundingClientRect();
+	var lposition = document.getElementById(mapid+'-tiles').getBoundingClientRect().left+(width*map_scale)/2;
+	var bposition = document.getElementById(mapid+'-tiles').getBoundingClientRect().bottom; //get the map's bottom bound to position legend 
+
 	var legend = d3.select('#'+mapid)
 	    .append('div')
 		  .attr("class", "legend-scale")
-		  .attr("style","background-image: linear-gradient(right,"+autoLinColor(datamax)+" 35%, #FFFFFF 100%);background-image: -o-linear-gradient(right, "+autoLinColor(datamax)+" 35%,#FFFFFF 100%);background-image: -moz-linear-gradient(right, "+autoLinColor(datamax)+" 35%, #FFFFFF 100%);background-image: -webkit-linear-gradient(right, "+autoLinColor(datamax)+" 35%, #FFFFFF 100%);background-image: -ms-linear-gradient(right, "+autoLinColor(datamax)+" 35%, #FFFFFF 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='"+autoLinColor(datamax)+"', endColorstr='"+autoLinColor(datamin)+"'); -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr='"+autoLinColor(datamax)+"', endColorstr='"+autoLinColor(datamin)+"')';left:"+lposition+"px")
+		  .attr("style","background-image: linear-gradient(right,"+autoLinColor(datamax)+" 35%, #FFFFFF 100%);background-image: -o-linear-gradient(right, "+autoLinColor(datamax)+" 35%,#FFFFFF 100%);background-image: -moz-linear-gradient(right, "+autoLinColor(datamax)+" 35%, #FFFFFF 100%);background-image: -webkit-linear-gradient(right, "+autoLinColor(datamax)+" 35%, #FFFFFF 100%);background-image: -ms-linear-gradient(right, "+autoLinColor(datamax)+" 35%, #FFFFFF 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='"+autoLinColor(datamax)+"', endColorstr='"+autoLinColor(datamin)+"'); -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr='"+autoLinColor(datamax)+"', endColorstr='"+autoLinColor(datamin)+"')';left:"+lposition+"px; top: "+bposition+'px;');
 
 	legend.append('span')
 		  .attr("class","min")

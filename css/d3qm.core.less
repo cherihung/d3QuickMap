@@ -1,0 +1,71 @@
+/* d3QuickMap plugin: core styles
+ * version 1.0.4
+ * author: Chienyi Cheri Hung @cyhung
+ * patches class name
+ */
+
+@tooltipbgd_color: #333333;
+@tooltiptxt_color: #ffffff;
+
+.d3-tip {
+
+  line-height: 1;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 11px;
+  padding: 10px;
+  background: rgba(red(@tooltipbgd_color), green(@tooltipbgd_color), blue(@tooltipbgd_color), 0.8);
+  color: @tooltiptxt_color;
+  -webkit-border-radius:2px;
+  -moz-border-radius:2px;
+   border-radius:2px;
+
+  span.value {
+      color: #FFF293;
+      text-transform: capitalize;
+  }
+} //.d3-tip
+.d3-tip:after {
+  border-width:10px 10px 0; /* vary these values to change the angle of the vertex */
+  border-style:solid;
+  border-color: rgba(red(@tooltipbgd_color), green(@tooltipbgd_color), blue(@tooltipbgd_color), 0.8) transparent;
+  content: "";
+  position: absolute;
+  left: 10%;
+  top: 100%;
+}
+
+.d3qmtiles path {
+   stroke: #ddd;
+   stroke-width: 1px;
+}
+.states-overlay {
+  stroke: #eee;
+  stroke-linejoin: round;
+}
+.legend-key, .legend-scale {
+       font-family: Arial, sans-serif;
+       font-size: 10px;
+}
+.legend-scale {
+   width: 200px;
+   height: 18px;
+   border:1px solid #ccc;
+   text-align:right;
+   padding: 0 5px;
+   margin-top: 1em;
+   position:absolute;
+    
+   span {
+       margin-top: 2px;
+    }
+   .max {
+      float:right;
+      color: #fff;
+   }
+   .min {
+      float:left;
+      color: #999;
+   }
+
+} //.legend-scale

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>
+  	
+	  Example: Automatic Color Scheme
+	
+  </title>
+	 <script type="text/javascript" src="/js/d3qm.lib.min.js"></script>
+         <script type="text/javascript" src="/js/d3qm.core.min.js"></script>
+	 <link rel="stylesheet" type="text/css" href="/css/d3qm.core.min.css" />
+	 <!-- to insert custom style block on each child page -->
+	 
+	 <style>
+	    body {
+	    font-family: Arial, sans-serif;
+	    margin: 0;
+	    padding: 0;
+	    }
+	</style>
+    </head>
+    <body>
+        <div class="container">
+            
+   	<div id="maps_1" style="float:left"></div>
+	<div id="maps_2"></div>
+  	<div id="maps_3" style="float:left"></div>
+	<div id="maps_4"></div>
+	<div id="maps_5" style="float:left"></div>
+	<script type="text/javascript">
+	  var settings_1 = {
+	       mapType: 'us-states', //us-states or us-counties
+	       dataSource: 'demo/data/sampledata-states.csv', 
+	       dataPoint: 'population',
+	       width: 460,
+	       height: 300,
+	       numberFormat: ",", //see d3.format(); ".1%" = % with 1 decimal place; "," for thoustand separator
+	       colorScheme: "orange", //use default d3 category10() color scheme
+	       legend: {
+		    showLegend: true, //true to display legend, false to not display legend at all.
+		    showCount: true, //true to display count for each key, false to not display
+		    type: 'default', //set to either default or custom
+		    customKeys: null
+		    },
+	      path: ''
+	   };
+	  var settings_2 = {
+	       mapType: 'us-states', //us-states or us-counties
+	       dataSource: 'demo/data/sampledata-states.csv', 
+	       dataPoint: 'population',
+	       width: 460,
+	       height: 300,
+	       numberFormat: ",", //see d3.format(); ".1%" = % with 1 decimal place; "," for thoustand separator
+	       colorScheme: "blue", //use default d3 category10() color scheme
+	       legend: {
+		    showLegend: true, //true to display legend, false to not display legend at all.
+		    showCount: true, //true to display count for each key, false to not display
+		    type: 'default', //set to either default or custom
+		    customKeys: null
+		    },
+	      path: ''
+	   };
+	  var settings_3 = {
+	       mapType: 'us-states', //us-states or us-counties
+	       dataSource: 'demo/data/sampledata-states.csv', 
+	       dataPoint: 'population',
+	       width: 460,
+	       height: 300,
+	       numberFormat: ",", //see d3.format(); ".1%" = % with 1 decimal place; "," for thoustand separator
+	       colorScheme: "green", //use default d3 category10() color scheme
+	       legend: {
+		    showLegend: true, //true to display legend, false to not display legend at all.
+		    showCount: true, //true to display count for each key, false to not display
+		    type: 'default', //set to either default or custom
+		    customKeys: null
+		    },
+	      path: ''
+	   };
+	  var settings_4 = {
+	       mapType: 'us-states', //us-states or us-counties
+	       dataSource: 'demo/data/sampledata-states.csv', 
+	       dataPoint: 'population',
+	       width: 460,
+	       height: 300,
+	       numberFormat: ",", //see d3.format(); ".1%" = % with 1 decimal place; "," for thoustand separator
+	       colorScheme: "purple", //use default d3 category10() color scheme
+	       legend: {
+		    showLegend: true, //true to display legend, false to not display legend at all.
+		    showCount: true, //true to display count for each key, false to not display
+		    type: 'default', //set to either default or custom
+		    customKeys: null
+		    },
+	      path: ''
+	   };
+	  var settings_5 = {
+	       mapType: 'us-states', //us-states or us-counties
+	       dataSource: 'demo/data/sampledata-states.csv', 
+	       dataPoint: 'population',
+	       width: 460,
+	       height: 300,
+	       numberFormat: ",", //see d3.format(); ".1%" = % with 1 decimal place; "," for thoustand separator
+	       colorScheme: "gray", //use default d3 category10() color scheme
+	       legend: {
+		    showLegend: true, //true to display legend, false to not display legend at all.
+		    showCount: true, //true to display count for each key, false to not display
+		    type: 'default', //set to either default or custom
+		    customKeys: null
+		    },
+	      path: ''
+	   };
+	  var map_1 = new d3QuickMap();
+	  map_1.drawMap('maps_1', settings_1);      
+	  var map_2 = new d3QuickMap();
+	  map_2.drawMap('maps_2', settings_2);
+	  var map_3 = new d3QuickMap();
+	  map_3.drawMap('maps_3', settings_3);
+	  var map_4 = new d3QuickMap();
+	  map_4.drawMap('maps_4', settings_4);
+	  var map_5 = new d3QuickMap();
+	  map_5.drawMap('maps_5', settings_5);
+	</script>
+
+        </div>
+    </body>
+</html>

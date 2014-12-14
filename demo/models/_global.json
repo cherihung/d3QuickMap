@@ -1,0 +1,54 @@
+{
+	"title": "d3QuickMap",
+	"subhead": "Javascript Plugin to display U.S. choropleath map using D3.js",
+	"demos": [
+		{
+			"name": "State Map",
+			"blurb": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.",
+			"uri": "statemap",
+			"img": ""
+		},
+		{
+			"name": "County Map",
+			"blurb": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.",
+			"uri": "countymap",
+			"img": ""
+		},
+		{
+			"name": "Automatic Color Scheme",
+			"blurb": "There are 5 builtin color schemes to use with this plugin: blue, red, green, orange, purple, and gray. Pick one and define it in <b>colorScheme</b>.",
+			"uri": "autocolorscheme",
+			"img": ""
+		},
+		{
+			"name": "Custom Color Scheme",
+			"blurb": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.",
+			"uri": "customcolorscheme",
+			"img": ""
+		},
+		{
+			"name": "Categorical Data",
+			"blurb": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.",
+			"uri": "categoricaldata",
+			"img": ""
+		},
+		{
+			"name": "Linear Data",
+			"blurb": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.",
+			"uri": "lineardata",
+			"img": ""
+		},
+		{
+			"name": "Automatic Legend",
+			"blurb": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.",
+			"uri": "autolegend",
+			"img": ""
+		},
+		{
+			"name": "Custom Legend",
+			"blurb": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.",
+			"uri": "customlegend",
+			"img": ""
+		}		
+	]
+}

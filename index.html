@@ -3,48 +3,46 @@
 <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width">
-        <title>d3QuickMap</title>
+        <title>d3QuickMap DEMO</title>
         <script type="text/javascript">
-        //trim leading, trailing whitespaces, shim for older browsers
-        if (!String.prototype.trim) {
-         String.prototype.trim = function() {
-          return this.replace(/^\s+|\s+$/g,'');
-         }
-        }
+          //trim leading, trailing whitespaces, shim for older browsers
+          if (!String.prototype.trim) {
+           String.prototype.trim = function() {
+            return this.replace(/^\s+|\s+$/g,'');
+           }
+          }
         </script>
-        <script type="text/javascript" src="js/lib.min.js"></script>
-        <script type="text/javascript" src="js/d3quickmap.min.js"></script>
-        <link rel="stylesheet" href="css/styles.min.css">
+        <script type="text/javascript" src="js/d3qm.lib.min.js"></script>
+        <script type="text/javascript" src="js/d3qm.core.min.js"></script>
+        <link rel="stylesheet" href="css/d3qm.core.min.css">
 </head>
 <body>
     <h1>d3QuickMap Demo</h1>
     
-  <div id="maps"></div> 
-  <!--EDITABLE BEGIN-->
-<script type="text/javascript">
-
-var settings = {
-     mapType: 'us-states', //us-states or us-counties
-     dataSource: 'data/sampledata-states.csv', 
-     dataPoint: 'income_tax',
-     width: 800,
-     height: 600,
-     numberFormat: ".1%", //see d3.format(); ".1%" = % with 1 decimal place; "," for thoustand separator
-     colorScheme: "orange", //use default d3 category10() color scheme
-     legend: {
-             showLegend: true, //true to display legend, false to not display legend at all. this is REQUIRED.
-             showCount: false, //true to display count for each key, false to not display
-             type: 'default', //set to either default or custom
-             customKeys: {
-                          yes: "",
-                          no: ""
-                          } //will only be read if type if custom. keep key name (e.g. yes) to lower case.
-              }
- };
-    
-var map = new d3QuickMap();
-map.drawMap('maps', settings);
-
-</script>
+   <div id="maps"></div> 
+   <script type="text/javascript">
+     var settings = {
+          mapType: 'us-states', //us-states or us-counties
+          dataSource: 'demo/data/sampledata-states.csv', 
+          dataPoint: 'income_tax',
+          width: 500,
+          height: 300,
+          numberFormat: ".1%", //see d3.format(); ".1%" = % with 1 decimal place; "," for thoustand separator
+          colorScheme: "orange", //use default d3 category10() color scheme
+          legend: {
+                  showLegend: true, //true to display legend, false to not display legend at all. this is REQUIRED.
+                  showCount: true, //true to display count for each key, false to not display
+                  type: 'default', //set to either default or custom
+                  customKeys: {
+                               yes: "",
+                               no: ""
+                               } //will only be read if type if custom. keep key name (e.g. yes) to lower case.
+                   },
+          path: ''
+      };
+         
+     var map = new d3QuickMap();
+     map.drawMap('maps', settings);
+   </script>
 </body>
 </html>

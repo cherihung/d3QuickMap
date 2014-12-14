@@ -1,0 +1,30 @@
+{% layout "layout-demo-single" %}
+{% block title %}
+  	{% for item in global.demos limit:1 offset:1 %}
+	  Example: {{ item.name }}
+	{% endfor %}
+  {% endblock %}
+{% block content %}
+	 <div id="maps"></div> 
+	<script type="text/javascript">
+	  var settings = {
+	       mapType: 'us-counties', //us-states or us-counties
+	       dataSource: 'data/output-unemploycounties.csv', 
+	       dataPoint: 'unemployrate',
+	       width: 960,
+	       height: 500,
+	       numberFormat: ".1%", //see d3.format(); ".1%" = % with 1 decimal place; "," for thoustand separator
+	       colorScheme: "orange", //use default d3 category10() color scheme
+	       legend: {
+		    showLegend: true, //true to display legend, false to not display legend at all.
+		    showCount: true, //true to display count for each key, false to not display
+		    type: 'default', //set to either default or custom
+		    customKeys: null
+		    },
+	      path: 'd3qm-plugin/'
+	   };
+	      
+	  var map = new d3QuickMap();
+	  map.drawMap('maps', settings);
+	</script>
+{% endblock %}

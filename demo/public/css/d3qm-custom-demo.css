@@ -1,0 +1,54 @@
+/* d3QuickMap plugin DEMO styles
+ * author: Chienyi Cheri Hung @cyhung
+ * defines custom legend and map colors
+ */
+.legend-scale {
+  /*added if using custom color scale for linear map */
+
+  background-color: #08306b !important;
+  background-image: -webkit-gradient(linear, left top, left top, color-stop(35%, #f7fbff), color-stop(100% #08306b)) !important;
+  background-image: -webkit-linear-gradient(left, #f7fbff 35%, #08306b 100%) !important;
+  background-image: -moz-linear-gradient(left, #f7fbff 35%, #08306b 100%) !important;
+  background-image: -ms-linear-gradient(left, #f7fbff 35%, #08306b 100%) !important;
+  background-image: -o-linear-gradient(left, #f7fbff 35%, #08306b 100%) !important;
+  background-image: linear-gradient(left, #f7fbff 35%, #08306b 100%) !important;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgb(8,48,107)', endColorstr='rgb(247,251,255)') !important;
+  -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr=' #08306b ', endColorstr=' #f7fbff ')' !important;
+  position: absolute;
+}
+.yes {
+  fill: #297ED8;
+}
+.no {
+  fill: #77AD58;
+}
+.flat {
+  fill: #E8C96D;
+}
+.q0-9 {
+  fill: #F7FBFF !important;
+}
+.q1-9 {
+  fill: #DEEBF7 !important;
+}
+.q2-9 {
+  fill: #C6DBEF !important;
+}
+.q3-9 {
+  fill: #9ECAE1 !important;
+}
+.q4-9 {
+  fill: #6BAED6 !important;
+}
+.q5-9 {
+  fill: #4292C6 !important;
+}
+.q6-9 {
+  fill: #2171B5 !important;
+}
+.q7-9 {
+  fill: #08519C !important;
+}
+.q8-9 {
+  fill: #08306B !important;
+}

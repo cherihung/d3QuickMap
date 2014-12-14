@@ -1,0 +1,90 @@
+{% layout "layout-demo" %}
+{% block title %}{{global.title}}: Custom Colors Example{% endblock %}
+{% block content %}
+	<h2>{{ global.title }} <a class="btn btn-success btn-sm" href="/index.html">Home</a> <a class="btn btn-primary btn-sm" href="https://github.com/cherihung/d3QuickMap" target="_blank">View on Github</a></h2s>
+	<h4>{{ global.subhead}}</h4>
+	    <hr class="featurette-divider">
+	<div class="row featurette">
+	{% for item in global.demos limit:1 offset:3 %}
+	  <h1>Example: {{ item.name }}</h1>
+	  <p>{{ item.blurb }}</p>
+	{% endfor %}
+        </div>
+	<div class="col-lg-12">
+	 <iframe src="customcolors-single.html" class="demoframe" scrolling="no" width="960px" height="800px" frameborder="1" seamless></iframe>
+	</div>
+
+<div class="col-md-10 col-md-offset-1">
+  <h3><span class="label label-default">Code</span></h3>
+<pre>
+   <code class="language-css">
+&lt;style type="text/css">
+.legend-scale {
+  background-color: #08306b !important;
+  background-image: -webkit-gradient(linear, left top, left top, color-stop(35%, #f7fbff), color-stop(100% #08306b)) !important;
+  background-image: -webkit-linear-gradient(left, #f7fbff 35%, #08306b 100%) !important;
+  background-image: -moz-linear-gradient(left, #f7fbff 35%, #08306b 100%) !important;
+  background-image: -ms-linear-gradient(left, #f7fbff 35%, #08306b 100%) !important;
+  background-image: -o-linear-gradient(left, #f7fbff 35%, #08306b 100%) !important;
+  background-image: linear-gradient(left, #f7fbff 35%, #08306b 100%) !important;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgb(8,48,107)', endColorstr='rgb(247,251,255)') !important;
+  -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr=' #08306b ', endColorstr=' #f7fbff ')' !important;
+  position: absolute;
+}
+.q0-9 {
+  fill: #F7FBFF !important;
+}
+.q1-9 {
+  fill: #DEEBF7 !important;
+}
+.q2-9 {
+  fill: #C6DBEF !important;
+}
+.q3-9 {
+  fill: #9ECAE1 !important;
+}
+.q4-9 {
+  fill: #6BAED6 !important;
+}
+.q5-9 {
+  fill: #4292C6 !important;
+}
+.q6-9 {
+  fill: #2171B5 !important;
+}
+.q7-9 {
+  fill: #08519C !important;
+}
+.q8-9 {
+  fill: #08306B !important;
+}
+&lt;/style>
+</code>
+<code class="language-javascript">
+&lt;script type="text/javascript">
+	  var settings = {
+	       mapType: 'us-states', //us-states or us-counties
+	       dataSource: 'data/sampledata-states.csv', 
+	       dataPoint: 'population',
+	       width: 960,
+	       height: 500,
+	       numberFormat: ",", //see d3.format(); ".1%" = % with 1 decimal place; "," for thoustand separator
+	       colorScheme: "orange", //use default d3 category10() color scheme
+	       legend: {
+		    showLegend: true, //true to display legend, false to not display legend at all.
+		    showCount: true, //true to display count for each key, false to not display
+		    type: 'default', //set to either default or custom
+		    customKeys: null
+		    },
+	      path: 'd3qm-plugin/'
+	   };
+	      
+          var map = new d3QuickMap();
+	  map.drawMap('maps', settings);    
+&lt;/script>
+</code>
+<code class="language-markup">&lt;div id="maps">&lt;/div></code>
+</pre>
+</div>
+	
+{% endblock %}

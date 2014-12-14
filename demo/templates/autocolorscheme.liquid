@@ -1,0 +1,46 @@
+{% layout "layout-demo" %}
+{% block title %}{{global.title}}: Automatic Colors Example{% endblock %}
+{% block content %}
+	<h2>{{ global.title }} <a class="btn btn-success btn-sm" href="/index.html">Home</a> <a class="btn btn-primary btn-sm" href="https://github.com/cherihung/d3QuickMap" target="_blank">View on Github</a></h2s>
+	<h4>{{ global.subhead}}</h4>
+	    <hr class="featurette-divider">
+	<div class="row featurette">
+	{% for item in global.demos limit:1 offset:2 %}
+	  <h1>Example: {{ item.name }}</h1>
+	  <p>{{ item.blurb }}</p>
+	{% endfor %}
+        </div>
+	<div class="col-lg-12">
+	 <iframe src="autocolors-single.html" class="demoframe" scrolling="no" width="960px" height="800px" frameborder="1" seamless></iframe>
+	</div>
+<div class="col-md-10 col-md-offset-1">
+  <h3><span class="label label-default">Code</span></h3>
+<pre>
+  <code class="language-javascript">
+    &lt;script type="text/javascript">
+	 var settings = {
+	       mapType: 'us-states', //us-states or us-counties
+	       dataSource: 'data/sampledata-states.csv', 
+	       dataPoint: 'population',
+	       width: 460,
+	       height: 300,
+	       numberFormat: ",", //see d3.format(); ".1%" = % with 1 decimal place; "," for thoustand separator
+	       colorScheme: "orange", //use default d3 category10() color scheme
+	       legend: {
+		    showLegend: true, //true to display legend, false to not display legend at all.
+		    showCount: true, //true to display count for each key, false to not display
+		    type: 'default', //set to either default or custom
+		    customKeys: null
+		    },
+	      path: 'd3qm-plugin/'
+	   };
+	      
+	  var map = new d3QuickMap();
+	  map.drawMap('maps', settings);
+    &lt;/script>
+</code>
+<code class="language-markup">&lt;div id="maps">&lt;/div></code>
+</pre>
+</div>
+	
+{% endblock %}

@@ -1,0 +1,21 @@
+{% block title %}{{global.title}}: DEMOS{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="jumbotron">
+      <h1>{{ global.title }} <a class="btn btn-primary btn-lg" href="https://github.com/cherihung/d3QuickMap" target="_blank">Download Source on Github</a></h1>
+    <h4>{{ global.subhead}} </h4> 
+</div>
+<div class="col-lg-12"><p class="well well-lg">Supports choropleath maps based on categorical or linear data. Draws either States or Counties map.</p></div></div>
+
+<div class="row featurette">
+  {% for item in global.demos %}
+     <div class="col-lg-6 demoblock">
+          <h2>{{ item.name }}</h2>
+          <p>{{ item.blurb }}</p>
+          <p><a class="btn btn-default" href="/{{ item.uri }}.html">View Example</a></p>
+    </div>
+  {% endfor %}
+</div>
+	
+
+{% endblock %}
